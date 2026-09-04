@@ -1,6 +1,6 @@
 while (True):
     print("1 Area of a Rectangle")
-    print("2 Volumne of a Cube")
+    print("2 Volume of a Cube")
     print("3 Area of a Circle")
     print("4 Circumference of a Circle")
     print("5 Exit")
