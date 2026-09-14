@@ -1,10 +1,6 @@
-print("Enter Employee's Name:")
-emp_name = input()
+mylist = [2, 56, 23, 11, 99, 32]
 
-print("Enter basic pay:")
-basic_pay = int(input())
-
-print("Deduction amount:")
-deduction_1 = int(input())
-
-print(emp_name+"'s","total pay is", basic_pay - deduction_1)
+print(mylist)
+for n in mylist:
+    print(n)
+    

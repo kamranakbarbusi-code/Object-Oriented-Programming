@@ -1,13 +1,6 @@
-number1 = int(input("Enter first number"))
-number2 = int(input("Enter second number"))
+oddlist = [1,3, 5, 7, 9,]
+evenlist = [2,4,6,8,10]
 
-
-if number1 > number2:
-    print ("Number 2 is the biggest")
-
-elif number1 != number2:
-    print("They are not equal")
-elif number1 < number2:
-    print("Number2 is the biggest")
-else:
-    print("Invalid Numbers")
+for i in range(0,len(oddlist)+1):
+    newlist = int(oddlist[i]) + int(evenlist[i])
+    print(newlist)
