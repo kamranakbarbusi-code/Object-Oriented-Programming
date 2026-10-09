@@ -1,0 +1,168 @@
+
+myBookList = []
+myAuthorList = []
+myUserList = []
+
+
+class Book_class:
+
+    def __init__(self):
+        self.book_id = ""
+        self.book_title = ""
+        self.author_id = ""
+        self.publisher = ""
+        self.year_of_publication = ""
+
+    def add_book(self):
+        self.book_id = input("Enter Book ID: ")
+        self.book_title = input("Enter Book title: ")
+        self.author_id = input("Enter Author ID: ")
+        self.publisher = input("Enter Publisher: ")
+        self.year_of_publication = input("Enter Year of Publication: ")
+
+    def print_info(self):
+        print("Book ID:", self.book_id)
+        print("Book Title:", self.book_title)
+        print("Author ID:", self.author_id)
+        print("Publisher:", self.publisher)
+        print("Year of Publication:", self.year_of_publication)
+
+
+class Author_class:
+
+    def __init__(self):
+        self.author_id = ""
+        self.author_name = ""
+        self.affiliation = ""
+        self.country = ""
+        self.phone = ""
+        self.emailid = ""
+
+    def add_author(self):
+        self.author_id = input("Enter Author ID: ")
+        self.author_name = input("Enter Author name: ")
+        self.affiliation = input("Enter Affiliation: ")
+        self.country = input("Enter Country: ")
+        self.phone = input("Enter Phone: ")
+        self.emailid = input("Enter Email ID: ")
+
+    def print_info(self):
+        print("Author ID:", self.author_id)
+        print("Author Name:", self.author_name)
+        print("Affiliation:", self.affiliation)
+        print("Country:", self.country)
+        print("Phone:", self.phone)
+        print("Email ID:", self.emailid)
+
+
+class User_class:
+
+    def __init__(self):
+        self.user_id = ""
+        self.name = ""
+        self.password = ""
+        self.address = ""
+        self.phone = ""
+        self.emailid = ""
+        self.booksborrowed = []
+
+    def add_user(self):
+        self.user_id = input("Enter User ID: ")
+        self.name = input("Enter User name: ")
+        self.password = input("Enter Password: ")
+        self.address = input("Enter Address: ")
+        self.phone = input("Enter Phone: ")
+        self.emailid = input("Enter Email ID: ")
+
+    def borrow_book(self, book_id):
+        self.booksborrowed.append(book_id)
+
+    def print_info(self):
+        print("User ID:", self.user_id)
+        print("Name:", self.name)
+        print("Password:", self.password)
+        print("Address:", self.address)
+        print("Phone:", self.phone)
+        print("Email ID:", self.emailid)
+        print("Books Borrowed:", self.booksborrowed)
+
+
+while True:
+
+    print("Library Management System")
+    print("1. Add Author")
+    print("2. Add Book")
+    print("3. Add User")
+    print("4. Borrow Book")
+    print("5. Display All Information")
+    print("6. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+
+    if choice == 1:
+
+        aut = Author_class()
+        aut.add_author()
+        myAuthorList.append(aut)
+
+        print("Author added successfully.")
+
+
+    elif choice == 2:
+
+        book = Book_class()
+        book.add_book()
+        myBookList.append(book)
+
+        print("Book added successfully.")
+
+
+    elif choice == 3:
+
+        user = User_class()
+        user.add_user()
+        myUserList.append(user)
+
+        print("User added successfully.")
+
+
+    elif choice == 4:
+
+        user_id = input("Enter User ID: ")
+        book_id = input("Enter Book ID to borrow: ")
+
+        for user in myUserList:
+            if user.user_id == user_id:
+                user.borrow_book(book_id)
+
+        print("Book borrowed successfully.")
+
+
+    elif choice == 5:
+
+        print("AUTHORS")
+
+        for aut in myAuthorList:
+            aut.print_info()
+
+        print("BOOKS")
+
+        for book in myBookList:
+            book.print_info()
+
+        print("USERS")
+
+        for user in myUserList:
+            user.print_info()
+
+
+    elif choice == 6:
+
+        print("Exiting program.")
+        break
+
+
+    else:
+
+        print("Invalid choice.")
